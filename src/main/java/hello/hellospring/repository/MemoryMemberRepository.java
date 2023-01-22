@@ -22,7 +22,7 @@ public class MemoryMemberRepository implements MemberRepository{
 
         return Optional.ofNullable(store.get(id));
     }
-
+// ㅇ??
     @Override
     public Optional<Member> findByName(String name) {
        return store.values().stream()
