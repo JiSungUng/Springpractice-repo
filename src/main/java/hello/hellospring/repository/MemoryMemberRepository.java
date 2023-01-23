@@ -2,8 +2,10 @@ package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
 import org.springframework.http.converter.json.GsonBuilderUtils;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository{
 
@@ -22,7 +24,7 @@ public class MemoryMemberRepository implements MemberRepository{
 
         return Optional.ofNullable(store.get(id));
     }
-// ㅇ??
+
     @Override
     public Optional<Member> findByName(String name) {
        return store.values().stream()
@@ -34,4 +36,9 @@ public class MemoryMemberRepository implements MemberRepository{
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore(){
+        store.clear();
+    }
+
 }
